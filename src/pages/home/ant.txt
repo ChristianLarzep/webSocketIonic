@@ -9,17 +9,16 @@ import $ from 'jquery'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  private serverUrl = null;
+  private serverUrl = 'http://localhost:8080/socket'
   private title = 'WebSockets chat';
   private stompClient;
 
   constructor(public navCtrl: NavController) {
-    this.serverUrl="/myAPI/";
     this.initializeWebSocketConnection();
   }
 
   initializeWebSocketConnection(){
-    let ws = new SockJS(this.serverUrl+'socket'); //endpoint that we added in the registerStompEndpoints() method in the server code.
+    let ws = new SockJS(this.serverUrl); //endpoint that we added in the registerStompEndpoints() method in the server code.
     this.stompClient = Stomp.over(ws);
     let that = this;
     this.stompClient.connect({}, function(frame) {
@@ -45,3 +44,7 @@ export class HomePage {
   }
 
 }
+
+
+
+https://www.thepolyglotdeveloper.com/2016/01/creating-a-real-time-chat-application-with-ionic-2-and-socket-io/

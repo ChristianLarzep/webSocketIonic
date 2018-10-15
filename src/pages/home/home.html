@@ -1,14 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      <ion-input [(ngModel)]="username" placeholder="Username"></ion-input>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <div class="chat-container">
+    <div class="chat">
+      <div class="message"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="send-button">
+
+    <div class="send" (click)="sendMessage(input.value)">
+    </div>
+    <input  id="input" type="text" #input>
+  </div>
+
+</div>
 </ion-content>
